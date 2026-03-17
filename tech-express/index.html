@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Express</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* FONDO ANIMADO */
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background: radial-gradient(circle, rgba(56,189,248,0.1) 1px, transparent 1px);
+    background-size:40px 40px;
+    animation: mover 10s linear infinite;
+    z-index:-1;
+}
+
+@keyframes mover{
+    from{transform:translateY(0);}
+    to{transform:translateY(40px);}
+}
+
+/* NAV */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+    background:#020617;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+nav h2{color:#38bdf8; font-size:28px;}
+
+nav a{
+    color:white;
+    margin-left:25px;
+    text-decoration:none;
+    font-size:18px;
+    transition:0.3s;
+}
+
+nav a:hover{color:#38bdf8;}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:100px 20px;
+    background: radial-gradient(circle at center, #1e293b, #0f172a);
+}
+
+.hero img{
+    width:350px;
+    max-width:90%;
+    margin-bottom:25px;
+    border-radius:20px;
+    background:#020617;
+    padding:15px;
+    filter: drop-shadow(0 0 15px #38bdf8);
+    transition:0.3s;
+}
+
+.hero img:hover{
+    transform:scale(1.05);
+    filter: drop-shadow(0 0 30px #38bdf8);
+}
+
+.hero h1{
+    font-size:48px;
+    color:#38bdf8;
+}
+
+.hero p{
+    margin:15px 0;
+    font-size:20px;
+}
+
+.btn{
+    background:#38bdf8;
+    padding:15px 30px;
+    border-radius:10px;
+    color:black;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#0ea5e9;
+}
+
+/* SERVICIOS */
+.servicios{
+    padding:60px 20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    transition:0.3s;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.card i{
+    font-size:40px;
+    margin-bottom:12px;
+    color:#38bdf8;
+    display:block;
+}
+
+.card:hover{
+    transform:translateY(-5px) scale(1.01);
+    background:#334155;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+/* Contenido desplegable */
+.contenido{
+    max-height:0;
+    overflow:hidden;
+    transition:0.4s;
+    margin-top:10px;
+    font-size:16px;
+    color:#cbd5f5;
+}
+
+.card.active .contenido{
+    max-height:200px;
+}
+
+/* CONTACTO */
+.contacto{
+    padding:60px 20px;
+    text-align:center;
+}
+
+.contacto p{
+    margin:12px 0;
+    font-size:20px;
+}
+
+.redes a{
+    display:inline-block;
+    margin:12px;
+    padding:14px 20px;
+    background:#1e293b;
+    border-radius:12px;
+    color:white;
+    text-decoration:none;
+    font-size:22px;
+    transition:0.3s;
+}
+
+.redes a i{
+    margin-right:8px;
+}
+
+.redes a:hover{
+    background:#38bdf8;
+    color:black;
+    transform:scale(1.05);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:25px;
+    background:#020617;
+    font-size:18px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25D366;
+    padding:20px;
+    border-radius:50%;
+    color:white;
+    font-size:32px;
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 15px rgba(0,0,0,0.4);
+    transition:0.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Tech Express</h2>
+    <div>
+        <a href="#"><i class="fas fa-home"></i> Inicio</a>
+        <a href="#servicios"><i class="fas fa-tools"></i> Servicios</a>
+        <a href="#contacto"><i class="fas fa-phone"></i> Contacto</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <img src="./logo.png" alt="Logo Tech Express">
+    <h1>Servicio Técnico Profesional</h1>
+    <p>⚡ Rápido | 🔒 Seguro | 💻 Especialistas en tecnología</p>
+    <a class="btn" href="https://wa.me/595982914558">
+        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+    </a>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="servicios">
+    <h2 style="text-align:center; margin-bottom:20px;">🛠 Nuestros Servicios</h2>
+
+    <p style="text-align:center; margin-bottom:30px; color:#94a3b8;">
+    Soluciones tecnológicas completas, rápidas y profesionales
+    </p>
+
+    <div class="grid">
+
+        <div class="card" onclick="toggle(this)">
+            <i class="fab fa-microsoft"></i>
+            <h3>Soporte técnico Microsoft y multiplataforma</h3>
+            <div class="contenido">
+                <p>• Windows, Linux y software general</p>
+                <p>• Configuración de sistemas</p>
+                <p>• Solución de errores</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggle(this)">
+            <i class="fas fa-desktop"></i>
+            <h3>Gestión de sistemas operativos</h3>
+            <div class="contenido">
+                <p>• Instalación y actualización de Windows</p>
+                <p>• Configuración inicial</p>
+                <p>• Optimización de rendimiento</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggle(this)">
+            <i class="fas fa-tachometer-alt"></i>
+            <h3>Optimización de software y arranque</h3>
+            <div class="contenido">
+                <p>• Mejora de velocidad y rendimiento</p>
+                <p>• Optimización de arranque</p>
+                <p>• Limpieza de sistema</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggle(this)">
+            <i class="fas fa-tools"></i>
+            <h3>Mantenimiento técnico</h3>
+            <div class="contenido">
+                <p>• Mantenimiento preventivo</p>
+                <p>• Reparación correctiva</p>
+                <p>• Diagnóstico completo</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggle(this)">
+            <i class="fas fa-shield-virus"></i>
+            <h3>Eliminación de virus y malware</h3>
+            <div class="contenido">
+                <p>• Eliminación de malware, virus y spyware</p>
+                <p>• Protección del sistema</p>
+                <p>• Optimización de seguridad</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggle(this)">
+            <i class="fas fa-database"></i>
+            <h3>Respaldo y gestión de datos</h3>
+            <div class="contenido">
+                <p>• Respaldo de información</p>
+                <p>• Recuperación de archivos</p>
+                <p>• Organización y gestión de datos</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggle(this)">
+            <i class="fas fa-wifi"></i>
+            <h3>Configuración de redes Wi-Fi</h3>
+            <div class="contenido">
+                <p>• Configuración de Wi-Fi y conectividad</p>
+                <p>• Solución de problemas de red</p>
+                <p>• Optimización de redes</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggle(this)">
+            <i class="fas fa-photo-video"></i>
+            <h3>Gestión de contenido multimedia</h3>
+            <div class="contenido">
+                <p>• Instalación y configuración de apps multimedia</p>
+                <p>• Configuración de entretenimiento digital</p>
+                <p>• Optimización de programas y streaming</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggle(this)">
+            <i class="fas fa-download"></i>
+            <h3>Instalación y configuración de aplicaciones</h3>
+            <div class="contenido">
+                <p>• Instalación de software básico y especializado</p>
+                <p>• Configuración completa de programas</p>
+                <p>• Actualizaciones y soporte</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggle(this)">
+            <i class="fas fa-headset"></i>
+            <h3>Soporte remoto y presencial</h3>
+            <div class="contenido">
+                <p>• Soporte remoto</p>
+                <p>• Asistencia presencial</p>
+                <p>• Solución rápida de problemas</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggle(this)">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Capacitación en informática y programación</h3>
+            <div class="contenido">
+                <p>• Informática básica</p>
+                <p>• Programación</p>
+                <p>• Uso de herramientas digitales</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="toggle(this)">
+            <i class="fas fa-video"></i>
+            <h3>Instalación de cámaras de seguridad</h3>
+            <div class="contenido">
+                <p>• Instalación de cámaras</p>
+                <p>• Configuración del sistema</p>
+                <p>• Monitoreo remoto</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contacto">
+    <h2>📞 Contacto</h2>
+
+    <p><i class="fab fa-whatsapp"></i> WhatsApp 1: +595 982 914 558</p>
+    <p><i class="fab fa-whatsapp"></i> WhatsApp 2: +595 975 700 774</p>
+    <p><i class="fas fa-envelope"></i> Email: techexpress.py@gmail.com</p>
+    <p><i class="fas fa-map-marker-alt"></i> Paraguay</p>
+
+    <div class="redes">
+        <a href="https://wa.me/595982914558"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://www.instagram.com/techexpressserviceandrepair?utm_source=qr&igsh=MXMybmdmZWR2dDNidA=="><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="mailto:techexpress.py@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Tech Express | Innovación y soluciones tecnológicas 💻⚡</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/595982914558">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- SCRIPT ACORDEÓN -->
+<script>
+function toggle(element){
+    let cards = document.querySelectorAll('.card');
+    cards.forEach(c => {
+        if(c !== element){
+            c.classList.remove('active');
+        }
+    });
+    element.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
